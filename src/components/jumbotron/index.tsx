@@ -17,10 +17,10 @@ interface JumbotronProps {
 export default function Jumbotron({
   children,
   direction = 'row',
-  ...rest
+  ...restProps
 }: JumbotronProps) {
   return (
-    <Item>
+    <Item {...restProps}>
       <Inner direction={direction}>{children}</Inner>
     </Item>
   );
