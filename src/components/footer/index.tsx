@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { AnchorHTMLAttributes } from 'react';
 import {
   Container,
   Row,
@@ -18,12 +18,14 @@ export default function Footer({ children, ...restProps }: FooterProps) {
 }
 
 interface FooterSubComponentProps {
-  children: React.ReactNode;
+  children?: React.ReactNode;
 }
 
 interface FooterRowProps extends FooterSubComponentProps {}
 interface FooterColumnProps extends FooterSubComponentProps {}
-interface FooterLinkProps extends FooterSubComponentProps {}
+interface FooterLinkProps
+  extends FooterSubComponentProps,
+    AnchorHTMLAttributes<any> {}
 interface FooterTitleProps extends FooterSubComponentProps {}
 interface FooterTextProps extends FooterSubComponentProps {}
 interface FooterBreakProps extends FooterSubComponentProps {}

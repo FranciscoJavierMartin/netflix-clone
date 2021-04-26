@@ -10,7 +10,7 @@ import {
 } from './styles/jumbotron';
 
 interface JumbotronProps {
-  children: any;
+  children: React.ReactNode;
   direction: 'row' | 'row-reverse';
 }
 
@@ -27,7 +27,7 @@ export default function Jumbotron({
 }
 
 interface JumbotronSubComponentProps {
-  children: any;
+  children: React.ReactNode;
 }
 
 interface JumbotronContainerProps extends JumbotronSubComponentProps {}
