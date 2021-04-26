@@ -8,7 +8,12 @@ import {
   Body,
 } from './styles/accordion';
 
-const ToggleContext = createContext<any>(null);
+interface ToggleContextState {
+  toggleShow: boolean;
+  setToggleShow: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+const ToggleContext = createContext<ToggleContextState>(null as any);
 
 interface AccordionProps {
   children: React.ReactNode;
@@ -58,7 +63,7 @@ Accordion.Header = function AccordionHeader({
 
   return (
     <Header
-      onClick={() => setToggleShow((prevState: any) => !prevState)}
+      onClick={() => setToggleShow((prevState: boolean) => !prevState)}
       {...restProps}
     >
       {children}
