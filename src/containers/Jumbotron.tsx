@@ -3,7 +3,7 @@ import { Jumbotron } from '../components';
 import jumboData from '../fixtures/jumbo.json';
 import { JumboData } from '../interfaces/jumboData';
 
-const JumbotronContainer: React.FC = () => {
+export default function JumbotronContainer() {
   return (
     <Jumbotron.Container>
       {(jumboData as JumboData[]).map((item: JumboData) => (
@@ -19,6 +19,4 @@ const JumbotronContainer: React.FC = () => {
       ))}
     </Jumbotron.Container>
   );
-};
-
-export default JumbotronContainer;
+}
