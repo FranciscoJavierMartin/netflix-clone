@@ -6,9 +6,7 @@ import {
   SIGN_IN_PAGE_ROUTE,
   SIGN_UP_PAGE_ROUTE,
 } from './constants/routes';
-import { BrowsePage, HomePage } from './pages';
-import SignIn from './pages/SignInPage';
-import SignUp from './pages/SignUpPage';
+import { BrowsePage, HomePage, SignInPage, SignUpPage } from './pages';
 
 function App() {
   return (
@@ -21,10 +19,10 @@ function App() {
           <BrowsePage />
         </Route>
         <Route exact path={SIGN_IN_PAGE_ROUTE}>
-          <SignIn />
+          <SignInPage />
         </Route>
         <Route exact path={SIGN_UP_PAGE_ROUTE}>
-          <SignUp />
+          <SignUpPage />
         </Route>
       </Switch>
     </Router>
