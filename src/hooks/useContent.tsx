@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react';
-import { FirebaseCollections } from '../constants/types';
+import { firebaseCollections } from '../constants/firebaseCollections';
 import useFirebaseContext from '../context/hooks/useFirebaseContext';
 import { FirebaseVideo } from '../interfaces/fireabseEntity';
 
-export default function useContent(target: FirebaseCollections) {
+export default function useContent(target: firebaseCollections) {
   const [content, setContent] = useState<FirebaseVideo[]>([]);
   const { firebase } = useFirebaseContext();
 
