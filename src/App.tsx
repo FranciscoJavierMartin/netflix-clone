@@ -7,23 +7,36 @@ import {
   SIGN_UP_PAGE_ROUTE,
 } from './constants/routes';
 import { BrowsePage, HomePage, SignInPage, SignUpPage } from './pages';
+import { IsUserRedirect, ProtectedRoute } from './helpers/routes';
 
 function App() {
+  const user = null;
+
   return (
     <Router>
       <Switch>
         <Route exact path={HOME_PAGE_ROUTE}>
           <HomePage />
         </Route>
-        <Route exact path={BROWSE_PAGE_ROUTE}>
+        <ProtectedRoute user={user} exact path={BROWSE_PAGE_ROUTE}>
           <BrowsePage />
-        </Route>
-        <Route exact path={SIGN_IN_PAGE_ROUTE}>
+        </ProtectedRoute>
+        <IsUserRedirect
+          user={user}
+          loggedInPath={BROWSE_PAGE_ROUTE}
+          exact
+          path={SIGN_IN_PAGE_ROUTE}
+        >
           <SignInPage />
-        </Route>
-        <Route exact path={SIGN_UP_PAGE_ROUTE}>
+        </IsUserRedirect>
+        <IsUserRedirect
+          user={user}
+          loggedInPath={BROWSE_PAGE_ROUTE}
+          exact
+          path={SIGN_UP_PAGE_ROUTE}
+        >
           <SignUpPage />
-        </Route>
+        </IsUserRedirect>
       </Switch>
     </Router>
   );
