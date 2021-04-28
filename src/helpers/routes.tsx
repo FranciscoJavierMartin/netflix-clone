@@ -1,9 +1,10 @@
 import React from 'react';
 import { Route, RouteProps, Redirect } from 'react-router';
 import { SIGN_IN_PAGE_ROUTE } from '../constants/routes';
+import { FirebaseUser } from '../constants/types';
 
 interface IsUserRedirectProps extends RouteProps {
-  user: any;
+  user: FirebaseUser | null;
   loggedInPath: string;
 }
 
@@ -24,7 +25,7 @@ export function IsUserRedirect({
 }
 
 interface ProtectedRouteProps extends RouteProps {
-  user: any;
+  user: FirebaseUser | null;
 }
 
 export function ProtectedRoute({
