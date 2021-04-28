@@ -5,4 +5,5 @@ export interface FirebaseVideo {
   genre: string;
   maturity: string;
   slug: string;
+  docId: string;
 }
