@@ -1,12 +1,11 @@
 import React from 'react';
 import { firebaseCollections } from '../constants/firebaseCollections';
 import useContent from '../hooks/useContent';
-
-// TODO: 4:58:07
+import selectionMap from '../utils/selectionMap';
 
 export default function BrowsePage() {
   const { series } = useContent(firebaseCollections.series);
   const { films } = useContent(firebaseCollections.films);
-  console.log(series);
+  const slides = selectionMap(series, films);
   return <div></div>;
 }
