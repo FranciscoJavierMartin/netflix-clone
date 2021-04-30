@@ -14,7 +14,7 @@ interface ProfilesSubComponentProps {
 }
 interface ProfilesTitleProps extends ProfilesSubComponentProps {}
 interface ProfilesListProps extends ProfilesSubComponentProps {}
-interface ProfilesUserProps extends ProfilesSubComponentProps {}
+interface ProfilesUserProps extends React.DOMAttributes<HTMLLIElement> {}
 interface ProfilesPictureProps extends ImgHTMLAttributes<any> {}
 interface ProfilesNameProps extends ProfilesSubComponentProps {}
 
