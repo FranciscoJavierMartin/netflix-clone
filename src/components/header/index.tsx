@@ -1,4 +1,4 @@
-import React, { ImgHTMLAttributes } from 'react';
+import React, { ImgHTMLAttributes, useState } from 'react';
 import { Link as ReactRouterLink, LinkProps } from 'react-router-dom';
 import {
   Background,
@@ -13,6 +13,9 @@ import {
   Text,
   Link,
   FeatureCallOut,
+  Search,
+  SearchIcon,
+  SearchInput,
 } from './styles/header';
 
 interface HeaderProps {
@@ -42,6 +45,10 @@ interface HeaderDropdownProps extends HeaderSubComponentProps {}
 interface HeaderPictureProps extends HeaderSubComponentProps {
   src: string;
 }
+interface HeaderSearchProps extends HeaderSubComponentProps{
+  searchTerm: string;
+  setSearchTerm: React.Dispatch<React.SetStateAction<string>>;
+}
 interface HeaderLogoProps
   extends HeaderSubComponentProps,
     ImgHTMLAttributes<any> {
@@ -52,7 +59,9 @@ interface HeaderButtonProps extends HeaderSubComponentProps, LinkProps {
 }
 interface HeaderFeatureCallOutProps extends HeaderSubComponentProps {}
 interface HeaderTextProps extends HeaderSubComponentProps {}
-interface HeaderTextLinkProps extends HeaderSubComponentProps {}
+interface HeaderTextLinkProps extends HeaderSubComponentProps {
+  onClick?: any;
+}
 
 Header.Feature = function HeaderFeature({
   children,
@@ -87,6 +96,27 @@ Header.Picture = function HeaderPicture({
   ...restProps
 }: HeaderPictureProps) {
   return <Picture {...restProps} src={`/images/users/${src}.png`} />;
+};
+
+Header.Search = function HeaderSearch({
+  searchTerm,
+  setSearchTerm,
+  ...restProps
+}: HeaderSearchProps) {
+  const [searchActive, setSearchActive] = useState<boolean>(false);
+  return (
+    <Search {...restProps}>
+      <SearchIcon onClick={() => setSearchActive((prevState) => !prevState)}>
+        <img src='/images/icons/search.png' alt='Search' />
+      </SearchIcon>
+      <SearchInput
+        value={searchTerm}
+        onChange={({ target }) => setSearchTerm(target.value)}
+        placeholder='Search films and series'
+        active={searchActive}
+      />
+    </Search>
+  );
 };
 
 Header.Dropdown = function HeaderDropdown({

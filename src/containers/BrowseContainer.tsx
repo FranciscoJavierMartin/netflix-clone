@@ -9,8 +9,9 @@ import { HOME_PAGE_ROUTE } from '../constants/routes';
 interface BrowseContainerProps {
   slides: Slides;
 }
-// TODO: Fix error on image is not displayed on small screen: 5:44:10
+
 export default function BrowseContainer({ slides }: BrowseContainerProps) {
+  const [searchTerm, setSearchTerm] = useState<string>('');
   const [profile, setProfile] = useState<{
     displayName: string;
     photoURL: string;
@@ -39,12 +40,21 @@ export default function BrowseContainer({ slides }: BrowseContainerProps) {
             <Header.TextLink>Films</Header.TextLink>
           </Header.Group>
           <Header.Group>
+            <Header.Search
+              searchTerm={searchTerm}
+              setSearchTerm={setSearchTerm}
+            />
             <Header.Profile>
               <Header.Picture src={profile.photoURL} />
               <Header.Dropdown>
                 <Header.Group>
                   <Header.Picture src={profile.photoURL} />
                   <Header.TextLink>{profile.displayName}</Header.TextLink>
+                </Header.Group>
+                <Header.Group>
+                  <Header.TextLink onClick={() => firebase.auth().signOut()}>
+                    Sign Out
+                  </Header.TextLink>
                 </Header.Group>
               </Header.Dropdown>
             </Header.Profile>
