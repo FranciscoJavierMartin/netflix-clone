@@ -6,7 +6,12 @@ import logo from '../logo.svg';
 
 interface SelectProfileContainerProps {
   user: FirebaseUser;
-  setProfile: React.Dispatch<React.SetStateAction<FirebaseUser | undefined>>;
+  setProfile: React.Dispatch<
+    React.SetStateAction<{
+      displayName: string;
+      photoURL: string;
+    }>
+  >;
 }
 
 export function SelectProfileContainer({
@@ -25,18 +30,14 @@ export function SelectProfileContainer({
         <Profiles.List>
           <Profiles.User
             onClick={() =>
-              setProfile(
-                (prevState) =>
-                  prevState && {
-                    ...prevState,
-                    displayName: user?.displayName,
-                    photoURL: user?.photoURL,
-                  }
-              )
+              setProfile({
+                displayName: user?.displayName || '',
+                photoURL: user?.photoURL || '',
+              })
             }
           >
             <Profiles.Picture src={user?.photoURL || ''} />
-            <Profiles.Name>{user.displayName}</Profiles.Name>
+            <Profiles.Name>{user?.displayName || ''}</Profiles.Name>
           </Profiles.User>
         </Profiles.List>
       </Profiles>
