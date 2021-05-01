@@ -16,6 +16,7 @@ import {
   Search,
   SearchIcon,
   SearchInput,
+  PlayButton,
 } from './styles/header';
 
 interface HeaderProps {
@@ -45,7 +46,7 @@ interface HeaderDropdownProps extends HeaderSubComponentProps {}
 interface HeaderPictureProps extends HeaderSubComponentProps {
   src: string;
 }
-interface HeaderSearchProps extends HeaderSubComponentProps{
+interface HeaderSearchProps extends HeaderSubComponentProps {
   searchTerm: string;
   setSearchTerm: React.Dispatch<React.SetStateAction<string>>;
 }
@@ -62,6 +63,7 @@ interface HeaderTextProps extends HeaderSubComponentProps {}
 interface HeaderTextLinkProps extends HeaderSubComponentProps {
   onClick?: any;
 }
+interface HeaderPlayButtonProps extends HeaderSubComponentProps {}
 
 Header.Feature = function HeaderFeature({
   children,
@@ -157,4 +159,11 @@ Header.FeatureCallOut = function HeaderFeatureCallOut({
   ...restProps
 }: HeaderFeatureCallOutProps) {
   return <FeatureCallOut {...restProps}>{children}</FeatureCallOut>;
+};
+
+Header.PlayButton = function HeaderPlayButton({
+  children,
+  ...restProps
+}: HeaderPlayButtonProps) {
+  return <PlayButton {...restProps}>{children}</PlayButton>;
 };
