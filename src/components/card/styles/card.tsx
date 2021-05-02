@@ -65,7 +65,14 @@ export const FeatureTitle = styled(Title)`
 `;
 
 export const FeatureText = styled.p<CSSProperties>`
-  margin-left: 0;
+  font-size: 18px;
+  color: white;
+  font-weight: ${({ fontWeight }) => fontWeight};
+  margin: 0;
+
+  @media (max-width: 600px) {
+    line-height: 22px;
+  }
 `;
 
 interface FeatureProps {
@@ -160,7 +167,7 @@ export const Item = styled.div`
   margin-right: 5px;
   position: relative;
   cursor: pointer;
-  transition: transform 0.2s;
+  transition: transform 0.9s;
 
   &:hover {
     transform: scale(1.3);

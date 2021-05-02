@@ -6,6 +6,7 @@ import { Card, Header, Loading } from '../components';
 import logo from '../logo.svg';
 import { HOME_PAGE_ROUTE } from '../constants/routes';
 import { FirebaseVideo } from '../interfaces/fireabseEntity';
+import FooterContainer from './Footer';
 
 interface BrowseContainerProps {
   slides: Slides;
