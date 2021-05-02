@@ -62,6 +62,7 @@ interface HeaderFeatureCallOutProps extends HeaderSubComponentProps {}
 interface HeaderTextProps extends HeaderSubComponentProps {}
 interface HeaderTextLinkProps extends HeaderSubComponentProps {
   onClick?: any;
+  active?: boolean;
 }
 interface HeaderPlayButtonProps extends HeaderSubComponentProps {}
 

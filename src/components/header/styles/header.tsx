@@ -57,14 +57,14 @@ export const Picture = styled.button<PictureProps>`
 `;
 
 interface LinkProps {
-  active?: string;
+  active?: boolean;
 }
 
 export const Link = styled.p<LinkProps>`
   color: white;
   text-decoration: none;
   margin-right: 30px;
-  font-weight: ${({ active }) => (active === 'true' ? '700' : 'normal')};
+  font-weight: ${({ active }) => (active ? '700' : 'normal')};
   cursor: pointer;
 
   &:hover {
